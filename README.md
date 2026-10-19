@@ -99,7 +99,7 @@ From [`cedana features`](docs/get-started/features.md). ✔ means implemented.
 | | Cedana GPU plugin | CRIU CUDA plugin |
 |---|---|---|
 | GPU vendor | NVIDIA | NVIDIA |
-| Driver versions | 452 and newer ([docs](https://docs.cedana.ai/daemon/checkpoint-restore/gpu)) | 570 and newer ([docs](https://docs.cedana.ai/daemon/checkpoint-restore/gpu)) |
+| Driver versions | 452 to 570 ([docs](https://docs.cedana.ai/daemon/checkpoint-restore/gpu)) | 570 only ([docs](https://docs.cedana.ai/daemon/checkpoint-restore/gpu)) |
 | Tested in CI | CUDA 12.8 and 13.2 | |
 | Several GPUs in one node | Yes | Yes |
 | Several processes | Yes | No |
