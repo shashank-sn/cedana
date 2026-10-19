@@ -1,0 +1,10 @@
+# Applies labels from branch names and changed paths (actions/labeler v7 syntax).
+Feature:
+  - head-branch: ['^feat', '^feature']
+bug:
+  - head-branch: ['^fix', '^hotfix']
+ci:
+  - head-branch: ['^ci/', '^test']
+documentation:
+  - changed-files:
+      - any-glob-to-any-file: ['docs/**', 'README.md', 'plugins/*/README.md']
