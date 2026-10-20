@@ -22,7 +22,7 @@ What is open source here, and what needs a Cedana account:
 ## News
 
 - **16 Oct 2026** [v0.9.400](https://github.com/cedana/cedana/releases/tag/v0.9.400): adds a podman plugin, so containers that podman runs can be checkpointed and restored.
-- **7 Oct 2026** [v0.9.309](https://github.com/cedana/cedana/releases/tag/v0.9.309): adds CRIU plugins for NVIDIA device files and InfiniBand, so processes that hold open `/dev/nvidia*` or `/dev/infiniband/*` files can be checkpointed.
+- **7 Oct 2026** [v0.9.309](https://github.com/cedana/cedana/releases/tag/v0.9.309): the Kubernetes node installer adds the CRIU `nvidia-dev` and `infiniband` plugins by default, and checkpoint and restore recognize Slurm's mounted namespaces.
 - **30 Sep 2026** [Serve a portfolio of coding models on a single node with NVIDIA Dynamo, NeMo Switchyard and Cedana](https://cedana.com/blog/coding-model-portfolio-single-node/)
 - **24 Sep 2026** [v0.9.305](https://github.com/cedana/cedana/releases/tag/v0.9.305): supports Slurm 26 cgroup names.
 - **11 Sep 2026** [What Cedana saves in a checkpoint, and its limits](https://cedana.com/blog/what-cedana-saves/)
