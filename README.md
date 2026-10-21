@@ -60,7 +60,7 @@ More detail: [How Cedana checkpoint and restore works](https://cedana.com/blog/h
 
 ## What Cedana supports
 
-Tested in CI: the regression suite on amd64 and arm64, GPU tests with CUDA 12.8 and 13.2, and Kubernetes tests on K3s, EKS, EKS with Karpenter, GKE and Nebius.
+Tested in CI: the regression suite on amd64 and arm64, GPU tests with CUDA 12.8 and 13.2, and Kubernetes tests on K3s for every pull request and on EKS, EKS with Karpenter, GKE and Nebius every night.
 
 ### Job shapes
 
@@ -89,9 +89,9 @@ From [`cedana features`](docs/get-started/features.md). ✔ means implemented.
 
 ### Orchestrators
 
-| Orchestrator | How Cedana installs | Versions tested | What changes in a workload |
+| Orchestrator | How Cedana installs | Tested on | What changes in a workload |
 |---|---|---|---|
-| Kubernetes | [Helm chart](https://github.com/cedana/cedana-helm-charts): a controller and a node helper DaemonSet | K3s, EKS, EKS with Karpenter, GKE and Nebius in CI | One env var, `CEDANA_CHECKPOINT`. GPU pods also set `runtimeClassName: cedana`. |
+| Kubernetes | [Helm chart](https://github.com/cedana/cedana-helm-charts): a controller and a node helper DaemonSet | K3s for every pull request. EKS, EKS with Karpenter, GKE and Nebius every night | One env var, `CEDANA_CHECKPOINT`. GPU pods also set `runtimeClassName: cedana`. |
 | Slurm | An installer registers Cedana's task, SPANK, cli filter and job submit plugins. No Slurm rebuild. The installer restarts `slurmctld` and `slurmd` when it finishes ([docs](https://docs.cedana.ai/cedana-slurm/installation)). | Slurm 26 cgroup names since v0.9.305 | One line: `#SBATCH --export=CEDANA_ENABLE=1` |
 
 ### GPUs and drivers
