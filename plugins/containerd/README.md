@@ -18,14 +18,19 @@ sudo ctr run docker.io/library/nginx:latest <container_id>
 cedana dump containerd <container_id> --dir <dump-dir>
 ```
 
-Restoring a container that Cedana does not manage is work in progress. You can restore it as a runc container: see [checkpoint and restore with runc](../../docs/guides/runc.md).
+To restore it, delete the old container, then restore from the dump path that `cedana dump` prints:
+
+```sh
+sudo ctr container delete <container_id>
+cedana restore containerd --path <dump-path> --id <container_id>
+```
 
 ## Run a container as a managed job
 
 A CPU example, with nginx:
 
 ```sh
-cedana run containerd --attach --jid <job_id> --image docker.io/library/nginx:latest
+cedana run containerd --attach --jid <job_id> docker.io/library/nginx:latest
 cedana dump job <job_id>
 cedana restore job --attach <job_id>
 ```
@@ -33,7 +38,7 @@ cedana restore job --attach <job_id>
 A GPU example:
 
 ```sh
-cedana run containerd --attach --gpu-enabled --jid <job_id> --image <your-gpu-image>
+cedana run containerd --attach --gpu-enabled --jid <job_id> <your-gpu-image>
 cedana dump job <job_id>
 cedana restore job --attach <job_id>
 ```
