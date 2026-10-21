@@ -1,6 +1,6 @@
 # Limits
 
-What Cedana does not do today, and where each limit is written down in full. Each item says which job shapes it applies to.
+What Cedana does not do today, and where each limit is written down in full.
 
 ## Job shape
 
