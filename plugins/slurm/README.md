@@ -49,6 +49,19 @@ CliFilterPlugins=cli_filter/cedana
 JobSubmitPlugins=job_submit/cedana
 ```
 
+Reload Slurm:
+
+```sh
+sudo systemctl restart slurmctld
+sudo systemctl restart slurmd
+```
+
+On the database node (`slurmdbd`), start `cedana-slurm`. The [installation docs](https://docs.cedana.ai/cedana-slurm/installation) also show a systemd service file for it.
+
+```sh
+sudo cedana-slurm daemon
+```
+
 No custom Slurm build is needed. The minimum is a controller and one compute node. Nodes without Cedana keep working, without checkpoint and restore.
 
 ## Use the plugin in a job
