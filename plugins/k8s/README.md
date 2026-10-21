@@ -1,16 +1,15 @@
 # Cedana Kubernetes helper plugin
 
-Sets up and maintains the Cedana daemon on Kubernetes nodes. You do not run it by hand: the cedana-helper DaemonSet, installed by the [cedana-helm chart](https://github.com/cedana/cedana-helm-charts), runs these commands on each node.
+Sets up the Cedana daemon on Kubernetes nodes. You do not run it by hand: the cedana-helper DaemonSet, installed by the [cedana-helm chart](https://github.com/cedana/cedana-helm-charts), runs `cedana k8s setup` on each node, and the chart's uninstaller runs `cedana k8s destroy`.
 
 ## Commands
 
 | Command | What it does |
 |---|---|
-| `cedana k8s-helper --setup-host` | Prepares a node: installs prerequisites, copies binaries and sets up the Cedana service |
-| `cedana k8s-helper destroy` | Cleans up a node after Cedana is stopped |
-| `cedana k8s-helper --restart` | Restarts the Cedana service on the host |
+| `cedana k8s setup` | Sets up and starts Cedana on the node: installs dependencies, the Cedana binaries and plugins and the Cedana service, then starts the helper |
+| `cedana k8s destroy` | Removes Cedana from the node and cleans up |
 
-`--setup-host` is not needed on nodes that run a Cedana machine image (AMI).
+Both are in the [CLI reference](../../docs/references/cli/cedana_k8s.md).
 
 The plugin also provides the query command that finds pods and containers on the node (see [`cedana features`](../../docs/get-started/features.md)).
 
