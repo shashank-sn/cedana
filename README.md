@@ -44,7 +44,7 @@ The daemon runs on every node, below the serving engine and the container runtim
 To checkpoint a running job, Cedana:
 
 1. Tracks the GPU side while the process runs, by interposing at the CUDA driver API: device memory, the CUDA context, streams and compiled graphs.
-2. For a job on several GPUs in one node, stops every GPU at the same point in the computation, so the saved state agrees across GPUs. Jobs that coordinate through NCCL use `--gpu-freeze-type nccl`.
+2. For a job on several GPUs in one node, stops every GPU at the same point in the computation, so the saved state agrees across GPUs.
 3. Hands the process to CRIU, which saves the CPU side: process memory, threads, open files and sockets.
 4. Saves the container's files, what the scheduler needs to resume the job and, for a serving worker, the KV cache.
 5. Writes the checkpoint to local disk or to checkpoint storage: Amazon S3, Cedana storage or CSX.
@@ -83,7 +83,7 @@ From [`cedana features`](docs/get-started/features.md). ✔ means implemented.
 | crun | ✔ | ✔ | ✔ | ✔ | |
 | containerd | ✔ | ✔ | ✔ | ✔ | Needs the runc or crun plugin underneath. Restore is covered by the regression tests. |
 | podman | ✔ | ✔ | ✔ | ✔ | Needs the crun or runc plugin and cedana-oci-runtime |
-| CRI-O | | | | | Not supported yet ([plugins/crio](plugins/crio/README.md)) |
+| CRI-O | | | | | Partially supported. The dump, restore and run middleware are implemented. The dump, restore and run commands are not ([plugins/crio](plugins/crio/README.md)) |
 | Kata Containers | VM level | VM level | | | From `cedana features` |
 | Cloud Hypervisor | VM level | VM level | | | From `cedana features` |
 

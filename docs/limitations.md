@@ -25,7 +25,7 @@ What Cedana does not do today, and where each limit is written down in full.
 
 - NVIDIA GPUs only.
 - Driver range: see the GPU table in the [README](../README.md#gpus-and-drivers).
-- Container runtimes: see the support table in the [README](../README.md#container-runtimes-and-vms). CRI-O is not supported yet.
+- Container runtimes: see the support table in the [README](../README.md#container-runtimes-and-vms). CRI-O is partially supported: its dump, restore and run commands are not implemented.
 
 ## Access and privileges
 
