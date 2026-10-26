@@ -1,3 +1,6 @@
+// Cedana is automated GPU checkpointing and migration infrastructure that increases the useful work your GPUs deliver.
+//
+// This module holds the open source Cedana daemon and CLI, built on CRIU, which checkpoint a running Linux process or container and restore it on the same or another machine.
 package main
 
 import (
