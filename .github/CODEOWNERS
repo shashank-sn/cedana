@@ -1,0 +1,4 @@
+# The people who merge pull requests today review README and docs changes.
+/README.md                  @yashanand1910 @nravic
+/docs/                      @yashanand1910 @nravic
+/plugins/*/README.md        @yashanand1910 @nravic
