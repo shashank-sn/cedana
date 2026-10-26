@@ -1,17 +1,35 @@
-## Kubernetes Helper Plugin
+# Cedana Kubernetes helper plugin
 
-Helper commands to setup inside of a Kubernetes environment.
+Sets up the Cedana daemon on Kubernetes nodes. You do not run it by hand: the cedana-helper DaemonSet, installed by the [cedana-helm chart](https://github.com/cedana/cedana-helm-charts), runs `cedana k8s setup` on each node, and the chart's uninstaller runs `cedana k8s destroy`.
 
-### `cedana k8s-helper --setup-host`
+## Commands
 
-Sets up a node to run Cedana by installing prerequisites, copying binaries, and setting up the service.
+| Command | What it does |
+|---|---|
+| `cedana k8s setup` | Sets up and starts Cedana on the node: installs dependencies, the Cedana binaries and plugins and the Cedana service, then starts the helper |
+| `cedana k8s destroy` | Removes Cedana from the node and cleans up |
 
-### `cedana k8s-helper destroy`
+Both are in the [CLI reference](../../docs/references/cli/cedana_k8s.md).
 
-Cleans up a node after Cedana is stopped.
+The plugin also provides the query command that finds pods and containers on the node (see [`cedana features`](../../docs/get-started/features.md)).
 
-### `cedana k8s-helper --restart`
+## How a workload opts in
 
-Restarts the Cedana service on the host.
+Add one environment variable to the container. Its value labels the workload's checkpoints, and applying the same YAML again starts the container from the latest checkpoint with that label:
 
-Not needed if running a Cedana AMI.
+```yaml
+env:
+  - name: CEDANA_CHECKPOINT
+    value: my-workload
+```
+
+GPU pods also set `runtimeClassName: cedana`. Full examples: [jobs that resume after a restart](https://docs.cedana.ai/cedana-kubernetes/jobs).
+
+## Install Cedana on a cluster
+
+See the [Kubernetes installation docs](https://docs.cedana.ai/cedana-kubernetes/installation) and the [chart README](https://github.com/cedana/cedana-helm-charts).
+
+## More
+
+- [Cedana installation: what changes on your cluster](https://cedana.com/blog/cedana-installation-cluster-changes/)
+- [Kubernetes GPU node drain: preserve running work](https://cedana.com/blog/kubernetes-gpu-node-drain/)
