@@ -1,0 +1,6 @@
+# Applies labels from branch names (actions/labeler v7 syntax).
+# No Feature rule: feature/ and feat/ branches here carry fixes too, so features are labelled by hand.
+bug:
+  - head-branch: ['^fix', '^hotfix']
+ci:
+  - head-branch: ['^ci/', '^test']

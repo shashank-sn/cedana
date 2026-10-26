@@ -1,0 +1,5 @@
+# Marks a pull request as docs only when every changed file is a doc.
+# One glob in braces: any-glob-to-all-files needs a single glob that matches every changed file.
+documentation:
+  - changed-files:
+      - any-glob-to-all-files: '{docs/**,**/*.md,.github/assets/**}'

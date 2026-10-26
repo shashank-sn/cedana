@@ -1,0 +1,33 @@
+# Groups the generated release notes by label. ci and skip-release-notes are new; the other labels exist today.
+changelog:
+  exclude:
+    labels:
+      - skip-release-notes
+    authors:
+      - dependabot
+  categories:
+    - title: Breaking changes
+      labels:
+        - breaking-config
+    - title: New features
+      labels:
+        - Feature
+        - enhancement
+    - title: Improvements
+      labels:
+        - Improvement
+    - title: Fixes
+      labels:
+        - bug
+    - title: Docs
+      labels:
+        - documentation
+    - title: Dependencies
+      labels:
+        - dependencies
+    - title: CI and tests
+      labels:
+        - ci
+    - title: Other changes
+      labels:
+        - "*"
